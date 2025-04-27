@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <title>Document</title>
+  </head>
+  <body>
+    <form name="myForm"  onsubmit="validateForm()">
+      Name: <input type="text" name="name">
+      <input type="submit" value="Submit">
+    </form>
+
+    <input id="a" type="number" min="50" max="250" required>
+    <button onclick="myFunction()">OK</button>
+    <p id="result"></p>
+    <script>
+        function validateForm() {
+          var x = document.forms["myForm"]["name"].value;
+          if (x == "") {
+            alert("Name must be filled out");
+            return false;
+          }
+          else document.write("Submitted");
+          
+        }
+
+        function myFunction() {
+        var inpObj = document.getElementById("a");
+        if (!inpObj.checkValidity()) {
+          document.getElementById("result").innerHTML = inpObj.validationMessage;
+        } else {
+          document.getElementById("result").innerHTML = "Done";
+        } 
+      } 
+      </script>
+  </body>
+</html>
